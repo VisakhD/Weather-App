@@ -25,7 +25,6 @@ class WeatherViewController: UIViewController {
         
         locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization()
-//        locationManager.requestLocation()
         
         searchField.delegate = self
         whetherObj.weatherDelegate = self
@@ -89,12 +88,11 @@ extension WeatherViewController : CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if   let location = locations.last {
+            
             locationManager.stopUpdatingLocation()
             let lat = location.coordinate.latitude
             let lon = location.coordinate.longitude
-        
-            let obj = WeatherManager2()
-            obj.fetchWhether2(latitude: lat, longitude: lon)
+            whetherObj.fetchWhether(latitude: lat, longitude: lon)
             print(lat)
             print(lon)
         }

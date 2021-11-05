@@ -93,8 +93,7 @@ extension WeatherViewController : CLLocationManagerDelegate {
             let lat = location.coordinate.latitude
             let lon = location.coordinate.longitude
             whetherObj.fetchWhether(latitude: lat, longitude: lon)
-            print(lat)
-            print(lon)
+
         }
     }
     
